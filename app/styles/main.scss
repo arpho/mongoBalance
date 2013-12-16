@@ -33,6 +33,12 @@ body {
   padding-right: 60px;
   width: 120%;
 }
+/* posiziono le dropbox dei filtri*/
+.filter {
+  left: -526px;
+  position: relative;
+  top: -287px;
+}
 
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
