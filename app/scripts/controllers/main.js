@@ -12,7 +12,7 @@ angular.module('mongoBalanceApp')
             debug('controller');
             for (var i = 0; i < purchaseLength; i++) {
                 if (purchase[i].payment in payment) {} else {
-                    debug('aggiungo '+ purchase[i]);
+                    debug('aggiungo '+ purchase[i].payment);
                     payment.push(purchase[i].payment)
                 }
                 var categoryLength = purchase[i].category.length;
@@ -22,11 +22,9 @@ angular.module('mongoBalanceApp')
                     }
                 }
             }
-            debug('payment');
-            debug(payment);
-            debug('category');
-            debug(category)
             $rootScope.payment = payment;
             $rootScope.category = category;
         });
-    }).controller('AddCtrl', function ($scope, $http) {});
+    }).controller('AddCtrl', function ($scope, $http) {
+    $scope.item = 'item';
+});

@@ -8,12 +8,12 @@
 
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
-  <p class="lead">Always a pleasure scaffolding your apps.</p>
+  <p class="lead">I tuoi ultimi acquisti.</p>
   <div class="row marketing">
       <table>
           <tr><th>oggetto</th><th>descrizione</th><th>prezzo</th><th>data</th><th>categoria</th><th>pagamento</th></tr>
   <tr ng-repeat="thing in purchases|filter:{payment:Payment}:{category:Category}">
-      <td>{{thing.item}}</td> <td>{{thing.info}}</td> <td>{{thing.price}}</td> <td>{{thing.data| date:'yyyy-MM-dd'}}</td><td>{{thing.category}}</td><td>{{thing.payment}}</td>
+      <td>{{thing.item}}</td> <td>{{thing.info}}</td> <td>{{thing.price|currency:'€'}}</td> <td>{{thing.data| date:'yyyy-MM-dd'}}</td><td>{{thing.category}}</td><td>{{thing.payment}}</td>
   </tr>
 </table>
 </div>
