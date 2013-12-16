@@ -28,6 +28,12 @@ body {
     border-bottom: 1px solid #e5e5e5;
 }
 
+.container .jumbotron {
+  padding-left: 60px;
+  padding-right: 60px;
+  width: 120%;
+}
+
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
     margin-top: 0;
