@@ -33,6 +33,27 @@ body {
   padding-right: 60px;
   width: 120%;
 }
+
+#addCat {
+  left: 214px;
+  position: relative;
+  top: -76px;
+}
+
+#categories {
+  position: relative;
+  left: 529px;
+  width: 97px;
+  top: -100px;
+}
+/* form validation*/
+input.ng-invalid {
+  border: 1px solid red;
+}
+input.ng-valid {
+  border: 1px solid green;
+}
+
 /* posiziono le dropbox dei filtri*/
 .filter {
   left: -526px;

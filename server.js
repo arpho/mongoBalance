@@ -29,7 +29,8 @@ app.configure(function(){
 	app.use(express.methodOverride());
 	app.use(app.router);
 });
-
+//middleware to parse the post data of the body
+app.use(express.bodyParser());
 app.configure('development', function(){
   app.use(express.static(path.join(__dirname, '.tmp')));
   app.use(express.static(path.join(__dirname, 'app')));
@@ -42,6 +43,7 @@ app.configure('production', function(){
 });
 
 // Routes
+app.post('/api/addPurchase', api.addPurchase);
 app.get('/api/awesomeThings', api.awesomeThings);
 app.get('/api/Purchase',api.purchase)
 // Start server
