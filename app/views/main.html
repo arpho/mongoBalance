@@ -12,17 +12,18 @@
   <div class="row marketing">
       <table>
           <tr><th>oggetto</th><th>descrizione</th><th>prezzo</th><th>data</th><th>categoria</th><th>pagamento</th></tr>
-  <tr ng-repeat="thing in purchases|filter:{payment:Payment}:{category:Category}">
+  <tr ng-repeat="thing in purchases|filter:{payment:Payment}| isCategory:Category">
       <td>{{thing.item}}</td> <td>{{thing.info}}</td> <td>{{thing.price|currency:'€'}}</td> <td>{{thing.data| date:'yyyy-MM-dd'}}</td><td>{{thing.category}}</td><td>{{thing.payment}}</td>
   </tr>
 </table>
 </div>
 <div class="filter">
     Filtra  per Categoria:<br>
-        <select ng-model="Category" ng-options="item as item for item in category"></select>
+        <select ng-model="Category" ng-options="item as item for item in category" ng-change="calculateTotal()"></select>
     <br>
     Filtra  per pagamento:<br>
-        <select ng-model="Payment" ng-options="item as item for item in payment"></select>
+        <select ng-model="Payment" ng-options="item as item for item in payment" ng-change="calculateTotal()"></select>
+    Subtotale:{{ Partial|currency:'€'}}
     </div>
     <!--div ng-view></div-->
 

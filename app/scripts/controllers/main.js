@@ -8,7 +8,29 @@ angular.module('mongoBalanceApp')
             $scope.purchases = purchase;
             var payment = [];
             var category = [];
-            var purchaseLength = purchase.length
+            $scope.calculateTotal = function() {
+                Array.prototype.contains = function(obj) {
+    var i = this.length;
+    while (i--) {
+        if (this[i] == obj) {
+            return true;
+        }
+    }
+    return false;
+}
+                $scope.Partial = 0;
+                for (var i=0;i<$scope.purchases.length;i++) {
+                   /* debug('payment=')
+                    debug($scope.purchases[i].payment)
+                    debug('category');
+                    debug($scope.purchases[i].category)*/
+                    if (($scope.purchases[i].payment==$scope.Payment) ||
+                        ($scope.purchases[i].category.contains($scope.Category))) {
+                        $scope.Partial += $scope.purchases[i].price;
+                    }
+                }
+            }
+            var purchaseLength = purchase.length;
             debug('controller');
             for (var i = 0; i < purchaseLength; i++) {
                 if (purchase[i].payment in payment) {} else {
@@ -50,4 +72,21 @@ angular.module('mongoBalanceApp')
         $http.post('/api/addPurchase',item).success(function(u) {debug('purchase sent to server');})
         debug(item);
     }
+}).filter('isCategory', function() {
+    return function(input, genre) {
+        debug('filtering');
+        if (typeof genre == 'undefined' || genre == null) {
+            return input;
+        } else {
+            var out = [];
+            for (var a = 0; a < input.length; a++){
+                for (var b = 0; b < input[a].category.length; b++){
+                    if(input[a].category[b] == genre) {
+                        out.push(input[a]);
+                    }
+                }
+            }
+            return out;
+        }
+    };
 });
