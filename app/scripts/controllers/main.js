@@ -8,6 +8,13 @@ angular.module('mongoBalanceApp')
             $scope.purchases = purchase;
             var payment = [];
             var category = [];
+            Array.prototype.contains = function(obj) {
+                var i = this.length;
+                while (i--) {
+                    if (this[i]==obj) { return true}
+                }
+                return false;
+            }
             $scope.calculateTotal = function() {
                 Array.prototype.contains = function(obj) {
     var i = this.length;
@@ -31,15 +38,16 @@ angular.module('mongoBalanceApp')
                 }
             }
             var purchaseLength = purchase.length;
-            debug('controller');
+            debug('controller MainCtrl');
             for (var i = 0; i < purchaseLength; i++) {
-                if (purchase[i].payment in payment) {} else {
+                if (payment.contains(purchase[i].payment) ) {} else {
                     debug('aggiungo '+ purchase[i].payment);
                     payment.push(purchase[i].payment)
+                    debug (payment);
                 }
                 var categoryLength = purchase[i].category.length;
                 for (var j = 0; j < purchase[i].category.length; j++) {
-                    if (purchase[i].category[j] in category) {} else {
+                    if (category.contains(purchase[i].category[j])) {} else {
                         category.push(purchase[i].category[j]);
                     }
                 }

@@ -21,6 +21,7 @@ require('./lib/db/dummydata');
 
 // Controllers
 var api = require('./lib/controllers/api');
+var add = require('./lib/controllers/add').addPurchase;
 
 // Express Configuration
 app.configure(function(){
@@ -43,7 +44,7 @@ app.configure('production', function(){
 });
 
 // Routes
-app.post('/api/addPurchase', api.addPurchase);
+app.post('/api/addPurchase', add);
 app.get('/api/awesomeThings', api.awesomeThings);
 app.get('/api/Purchase',api.purchase)
 // Start server
