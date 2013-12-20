@@ -26,15 +26,21 @@ angular.module('mongoBalanceApp')
     return false;
 }
                 $scope.Partial = 0;
+                var checkFields = function(field,condition) {
+                    /* nel computo del parziale vannoconsiderate le spese che verificano entrambe le condizioni se una non è settata non deve essere computata quindi la sua parte dell'espressione booleana deve essere esclusa*/
+                    if (typeof(field)=='undefined') {return true}
+                    else {return condition}
+                }
                 for (var i=0;i<$scope.purchases.length;i++) {
                    /* debug('payment=')
                     debug($scope.purchases[i].payment)
                     debug('category');
                     debug($scope.purchases[i].category)*/
-                    if (($scope.purchases[i].payment==$scope.Payment) ||
-                        ($scope.purchases[i].category.contains($scope.Category))) {
-                        $scope.Partial += $scope.purchases[i].price;
-                    }
+                    if (checkFields($scope.Payment,$scope.purchases[i].payment==$scope.Payment) &&
+                        checkFields($scope.Category,$scope.purchases[i].category.contains($scope.Category))) {
+                             $scope.Partial += $scope.purchases[i].price;
+                        }
+                    
                 }
             }
             var purchaseLength = purchase.length;

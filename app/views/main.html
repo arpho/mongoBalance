@@ -5,7 +5,14 @@
   </ul>
   <h3 class="text-muted">angular fullstack update</h3>
 </div>
-
+<div class="filter">
+    Filtra  per Categoria:<br>
+        <select ng-model="Category" ng-options="item as item for item in category" ng-change="calculateTotal()"></select>
+    <br>
+    Filtra  per pagamento:<br>
+        <select ng-model="Payment" ng-options="item as item for item in payment" ng-change="calculateTotal()"></select><br>
+    Subtotale:{{ Partial|currency:'€'}}
+    </div>
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">I tuoi ultimi acquisti.</p>
@@ -17,14 +24,7 @@
   </tr>
 </table>
 </div>
-<div class="filter">
-    Filtra  per Categoria:<br>
-        <select ng-model="Category" ng-options="item as item for item in category" ng-change="calculateTotal()"></select>
-    <br>
-    Filtra  per pagamento:<br>
-        <select ng-model="Payment" ng-options="item as item for item in payment" ng-change="calculateTotal()"></select>
-    Subtotale:{{ Partial|currency:'€'}}
-    </div>
+
     <!--div ng-view></div-->
 
 
