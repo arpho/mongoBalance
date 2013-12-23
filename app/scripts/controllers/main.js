@@ -27,7 +27,7 @@ angular.module('mongoBalanceApp')
 }
                 $scope.Partial = 0;
                 var checkFields = function(field,condition) {
-                    /* nel computo del parziale vannoconsiderate le spese che verificano entrambe le condizioni se una non è settata non deve essere computata quindi la sua parte dell'espressione booleana deve essere esclusa*/
+                    /* nel computo del parziale vanno considerate le spese che verificano entrambe le condizioni: category e payment, se una non è settata non deve essere computata quindi la sua parte dell'espressione booleana deve essere esclusa*/
                     if (typeof(field)=='undefined') {return true}
                     else {return condition}
                 }
@@ -36,12 +36,11 @@ angular.module('mongoBalanceApp')
                     debug($scope.purchases[i].payment)
                     debug('category');
                     debug($scope.purchases[i].category)*/
-                   /* var test = false;
+                    var test = false;
                         test = ((typeof($scope.Payment)=='undefined')||($scope.purchases[i].payment==$scope.Payment)) &&
                          ( (typeof($scope.Category)=='undefined')||($scope.purchases[i].category.contains($scope.Category)));
-                    debug(test)*/
-                    if (checkFields($scope.Payment,$scope.purchases[i].payment==$scope.Payment) &&
-                        checkFields($scope.Category,$scope.purchases[i].category.contains($scope.Category))) {
+                    debug(test)
+                    if (test) {
                         
                        // debug(test);
                              $scope.Partial += $scope.purchases[i].price;
