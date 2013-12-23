@@ -36,8 +36,14 @@ angular.module('mongoBalanceApp')
                     debug($scope.purchases[i].payment)
                     debug('category');
                     debug($scope.purchases[i].category)*/
+                   /* var test = false;
+                        test = ((typeof($scope.Payment)=='undefined')||($scope.purchases[i].payment==$scope.Payment)) &&
+                         ( (typeof($scope.Category)=='undefined')||($scope.purchases[i].category.contains($scope.Category)));
+                    debug(test)*/
                     if (checkFields($scope.Payment,$scope.purchases[i].payment==$scope.Payment) &&
                         checkFields($scope.Category,$scope.purchases[i].category.contains($scope.Category))) {
+                        
+                       // debug(test);
                              $scope.Partial += $scope.purchases[i].price;
                         }
                     
