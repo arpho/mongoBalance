@@ -23,6 +23,11 @@ body {
     padding-bottom: 20px;
 }
 
+.row_marketing {
+  position: relative;
+  left: -12px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -36,12 +41,16 @@ body {
     border-bottom: 1px solid #e5e5e5;
 }
 
-.container .jumbotron {
+/*.container .jumbotron {
   padding-left: 60px;
   padding-right: 60px;
   width: 120%;
+}*/
+.container .jumbotron {
+  margin-top: -143px;
+  padding-right: 60px;
+  width: 93.5%;
 }
-
 #addCat {
   left: 214px;
   position: relative;

@@ -1,10 +1,4 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#/add">Aggiungi Acquisto</a></li>
-  </ul>
-  <h3 class="text-muted">angular fullstack update</h3>
-</div>
+
 <div class="filter">
     Filtra  per Categoria:<br>
         <select ng-model="Category" ng-options="item as item for item in category" ng-change="calculateTotal()"></select>
@@ -16,7 +10,7 @@
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">I tuoi ultimi acquisti.</p>
-  <div class="row marketing">
+  <div class="row_marketing">
       <table>
           <tr><th>oggetto</th><th>descrizione</th><th>prezzo</th><th>data</th><th>categoria</th><th>pagamento</th></tr>
   <tr ng-repeat="thing in purchases|filter:{payment:Payment}| isCategory:Category">
