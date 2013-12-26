@@ -13,7 +13,7 @@
   <div class="row_marketing">
       <table>
           <tr><th>oggetto</th><th>descrizione</th><th>prezzo</th><th>data</th><th>categoria</th><th>pagamento</th></tr>
-  <tr ng-repeat="thing in purchases|filter:{payment:Payment}| isCategory:Category">
+  <tr ng-repeat="thing in purchases|filter:{payment:Payment}| isCategory:Category| orderBy:'data':true">
       <td>{{thing.item}}</td> <td>{{thing.info}}</td> <td>{{thing.price|currency:'€'}}</td> <td>{{thing.data| date:'yyyy-MM-dd'}}</td><td><ul><li ng-repeat='cat in thing.category'>{{cat}}</li></ul></td><td>{{thing.payment}}</td>
   </tr>
 </table>

@@ -26,5 +26,6 @@ angular.module('mongoBalanceApp').controller('AddCtrl', function ($scope, $http)
        // item.category.push($scope.newCategory|| $scope.Category);
         $http.post('/api/addPurchase',item).success(function(u) {debug('purchase sent to server');})
         debug(item);
+        $window.location='/login/homepage'
     }
 });
