@@ -1,6 +1,6 @@
 'use strict';
 var debug = function (s) {
-    console.log(s);
+   // console.log(s);
 }
 angular.module('mongoBalanceApp').controller('AddCtrl', function ($scope, $http) {
     $scope.item = 'item';

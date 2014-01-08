@@ -8,7 +8,7 @@ angular.module('mongoBalanceApp', [
 ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/purchases', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       }).when('/add', {
@@ -16,6 +16,6 @@ angular.module('mongoBalanceApp', [
         controller: 'AddCtrl'
     })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/purchases'
       });
   });

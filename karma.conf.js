@@ -19,7 +19,7 @@ module.exports = function(config) {
       'app/bower_components/angular-route/angular-route.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+      //'test/e2e/**/*.js', ora ci pensa protractor per i test end2end
       'test/spec/**/*.js'
     ],
 
@@ -46,7 +46,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode

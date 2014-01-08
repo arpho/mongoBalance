@@ -37,8 +37,8 @@ angular.module('mongoBalanceApp')
                     debug('category');
                     debug($scope.purchases[i].category)*/
                     var test = false;
-                        test = ((typeof($scope.Payment)=='undefined')||($scope.purchases[i].payment==$scope.Payment)) &&
-                         ( (typeof($scope.Category)=='undefined')||($scope.purchases[i].category.contains($scope.Category)));
+                        test = ((typeof($scope.Payment)=='undefined')||($scope.purchases[i].payment==$scope.Payment)) && //se il tipo di pagamento non è definito, filtro solo su categoria
+                         ( (typeof($scope.Category)=='undefined')||($scope.purchases[i].category.contains($scope.Category))); //se il tipo di  categoria non è definito filtro solo su pagamento
                     debug(test)
                     if (test) {
                         
