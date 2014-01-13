@@ -7,11 +7,16 @@
         <select ng-model="Payment" ng-options="item as item for item in payment" ng-change="calculateTotal()"></select><br>
     Subtotale:{{ Partial|currency:'€'}}
     </div>
+<div id='total4cat'>
+    <ul><li ng-repeat="(key, value) in total4categories">
+        {{key}}:{{value|currency:'€'}}
+        </li></ul>
+    </div>
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">I tuoi ultimi acquisti.</p>
   <div class="row_marketing">
-      <table>
+      <table class='purchaseTable'>
           <tr><th>oggetto</th><th>descrizione</th><th>prezzo</th><th>data</th><th>categoria</th><th>pagamento</th></tr>
   <tr ng-repeat="thing in purchases|filter:{payment:Payment}| isCategory:Category| orderBy:'data':true">
       <td>{{thing.item}}</td> <td>{{thing.info}}</td> <td>{{thing.price|currency:'€'}}</td> <td>{{thing.data| date:'yyyy-MM-dd'}}</td><td><ul><li ng-repeat='cat in thing.category'>{{cat}}</li></ul></td><td>{{thing.payment}}</td>

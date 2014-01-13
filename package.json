@@ -33,7 +33,9 @@
     "grunt-open": "~0.2.0",
     "grunt-karma": "~0.6.2",
     "grunt-protractor-runner": "~0.2.1",
-    "protractor": "~0.15.0"
+    "protractor": "~0.15.0",
+    "selenium": "~2.20.0",
+    "chromedriver": "~2.8.0"
   },
   "engines": {
     "node": ">=0.8.0"
