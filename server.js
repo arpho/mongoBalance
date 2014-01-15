@@ -20,8 +20,9 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 require('./lib/db/dummydata');
 
 // Controllers
-var api = require('./lib/controllers/api');
-var add = require('./lib/controllers/add').addPurchase;
+var api = require('./lib/controllers/api'),
+    filter = require('./lib/controllers/filter'),
+    add = require('./lib/controllers/add').addPurchase;
 
 // Express Configuration
 app.configure(function(){
@@ -46,7 +47,8 @@ app.configure('production', function(){
 // Routes
 app.post('/api/addPurchase', add);
 app.get('/api/awesomeThings', api.awesomeThings);
-app.get('/api/Purchase',api.purchase)
+app.get('/api/Purchase',api.purchase);
+app.post('/api/filter',filter.filter);
 // Start server
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
