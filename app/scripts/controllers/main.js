@@ -7,13 +7,12 @@ angular.module('mongoBalanceApp')
         $scope.mainFunction = function(){
             /*carica tutti gli acquisti, viene eseguita all'avvio e quando siresettano i filtri*/
             $scope.rangeDate = ['day','week','month','year' ];
-            if (typeof $scope.IntervalDate=="undefined" || $scope.IntervalDate == null || typeof $scope.RangeDate == 'undefined' || $scope.RangeDate == null ) {
-                var load = $http.get('/api/purchase'); // non è richiesto nessun filtro temporale
-            } else {
+            var load = $http.get('/api/purchase'); // non è richiesto nessun filtro temporale
+            if(! (typeof $scope.IntervalDate=="undefined" || $scope.IntervalDate == null || typeof $scope.RangeDate == 'undefined' || $scope.RangeDate == null ))  {
                 var body = {};
                 body.interval = $scope.IntervalDate;
                 body.scale = $scope.RangeDate;
-                var  load = $http.post('/api/filter',body); // devo filtrare per data, inviola richiesta a node
+                  load = $http.post('/api/filter',body); // devo filtrare per data, inviola richiesta a node
             }
                 
             load.success(function (purchase) {
