@@ -24,7 +24,7 @@ angular.module('mongoBalanceApp').controller('AddCtrl', function ($scope, $http)
         item.payment = $scope.newPayment || $scope.Payment;
         item.category = $scope.selected_category;
        // item.category.push($scope.newCategory|| $scope.Category);
-        $http.post('/api/addPurchase',item).success(function(u) {debug('purchase sent to server');})
+        $http.post('/api/addPurchase',item).success(function(u) {$scope.result = 'acquisto aggiunto';})
         debug(item);
         $window.location='/login/homepage'
     }
