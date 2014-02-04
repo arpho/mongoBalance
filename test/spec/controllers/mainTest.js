@@ -90,6 +90,27 @@ it('should calculate the total for every category',function(){
     var total4categories = {'alimenti':16.24,'test category':0,gnosis:6.66};
     expect(scope.total4categories).toEqual(total4categories);
 })
+it('calculate total ', function() {
+   // scope.Payment = "test payment";
+    $httpBackend.flush();
+    expect(Math.round(scope.Partial*100)/100).toEqual(16.24);
+})
+it('calculate total for payment test payment', function() {
+    scope.Payment = "test payment";
+    $httpBackend.flush();
+    expect(Math.round(scope.Partial*100)/100).toEqual(0);
+})
+it('calculate total for payment visa', function() {
+    scope.Payment = "visa";
+    $httpBackend.flush();
+    expect(Math.round(scope.Partial*100)/100).toEqual(16.24);
+})
+it('calculate total for payment visa for gnosis', function() {
+    scope.Payment = "visa";
+    scope.Category = 'gnosis';
+    $httpBackend.flush();
+    expect(Math.round(scope.Partial*100)/100).toEqual(6.66);
+})
   xit('should attach a list of awesomeThings to the scope', function () {
     expect(scope.awesomeThings).toBeUndefined();
     $httpBackend.flush();

@@ -10,13 +10,16 @@ describe('homepage', function() {
     var ele = by.name('addPurchase');
     expect(ptor.isElementPresent(ele)).toBe(true);
   });
-  it('form should not be valid',function() {
-      var price = by.name('price'),
-          oldCategory = by.name('oldCategory'),
-          newCategory = by.name('newCategory'),
-          oldPayment = by.name('oldPayment'),
-          newPayment = by.name('newPayment'),
-          item = by.name('item');
+  it('submit should not be enabled',function() {
+      var price = element(by.name('price')),
+          oldCategory = element(by.name('oldCategory')),
+          newCategory = element(by.name('newCategory')),
+          oldPayment = element(by.name('oldPayment')),
+          newPayment = element(by.name('newPayment')),
+          item = element(by.name('item')),
+          submit = element(by.id('submitButton'));
+      expect(submit.isEnabled()).toBe(false);
+      
       
   });
 });
